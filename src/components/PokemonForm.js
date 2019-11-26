@@ -16,10 +16,9 @@ class PokemonForm extends React.Component {
   frontChange = (e) => {this.setState({frontUrl: e.target.value})}
   backChange = (e) => {this.setState({backUrl: e.target.value})}
 
+  
   handleSubmit = () => {
-    // console.log(this.state)
-    /* FETCH POST GOES HERE??!?! */
-
+    const {name, hp, frontUrl, backUrl} = this.state
     fetch(`http://localhost:3000/pokemon`, {
       method: "POST",
       headers: {
@@ -27,15 +26,14 @@ class PokemonForm extends React.Component {
           "Accept": 'application/json'
       },
       body: JSON.stringify({
-          name: this.state.name,
-          stats: [{value: this.state.hp, name: 'hp'}],
-          sprites: {front: this.state.frontUrl, back: this.state.backUrl}
+          name: name,
+          stats: [{value: hp, name: 'hp'}],
+          sprites: {front: frontUrl, back: backUrl}
       })
     })
       .then(resp => resp.json())
-      .then(json => {
-        //console.log(json)
-        this.props.addNewPokemon(json)
+      .then(newPoke => {
+        this.props.addNewPokemon(newPoke)
     })
   }
 

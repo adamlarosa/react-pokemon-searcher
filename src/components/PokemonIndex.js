@@ -26,6 +26,7 @@ class PokemonPage extends React.Component {
       })
   }
   
+  
   searchBarChange = (e) => {
     //console.log('🤔')
     this.setState({
@@ -40,7 +41,6 @@ class PokemonPage extends React.Component {
     })
   }
 
-  
   render() {
     return (
       <Container>

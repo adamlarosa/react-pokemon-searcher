@@ -15,9 +15,7 @@ class PokemonCard extends React.Component {
   }
 
   render() {
-    /* unused props: abilities, height, id, moves, types, weight */
     const {name, sprites, stats} = this.props.pokemon
-
     return (
       <Card>
         <div>
@@ -42,5 +40,4 @@ class PokemonCard extends React.Component {
     )
   }
 }
-
 export default PokemonCard
